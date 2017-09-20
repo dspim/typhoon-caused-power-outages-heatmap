@@ -6,7 +6,8 @@ path <- "./"
 tw <- readOGR(dsn = paste0(path, '村里界圖(TWD97經緯度)1050715/Village_NLSC_1050715.shp'),
               layer='Village_NLSC_1050715', stringsAsFactors = F,
               verbose = F)
-train <- read.csv(path0(path,"train.csv"))
+
+train <- read.csv(paste0(path,"train.csv"))
 
 tw@data <- left_join(tw@data, train, by=c("VILLAGE_ID"="VilCode"))
 
